@@ -6,7 +6,7 @@
 
 /**
  *
- * @author Ifan
+ * Kelas ini merupakan kelas yang menyimpan semua informasi yang terdapat dipapan.  
  */
 public class Board {
     
@@ -17,6 +17,11 @@ public class Board {
     private int pemain;
     private int[][] sizeBoard;
     
+    /**
+     * 
+     * @param x merupakan koordinat x
+     * @param y merupakan koordinat y
+     */
     public Board(int x, int y)
     {
         this.sizeBoard = sizeBoard;

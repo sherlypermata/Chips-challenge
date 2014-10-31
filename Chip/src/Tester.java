@@ -6,7 +6,7 @@
 
 /**
  *
- * @author Ifan
+ * Kelas ini merupakan kelas untuk menjalankan proses chips challenge dan melihat hasil keluarannya.
  */
 public class Tester {
     public static void main(String[] args)

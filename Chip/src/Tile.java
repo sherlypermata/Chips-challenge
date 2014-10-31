@@ -6,7 +6,8 @@
 
 /**
  *
- * @author Ifan
+ * Kelas ini merupakan kelas yang menyimpan informasi-informasi tentang elemen-elemen di dalamnya berupa Chip, 
+ * lantai kosong, IC, barrier, finish, dan fire.
  */
 public class Tile {
 
@@ -16,6 +17,7 @@ public class Tile {
         return obstacleType;
     }
 
+    
     public void setObstacleType(String obstacleType) {
         this.obstacleType = obstacleType;
     }

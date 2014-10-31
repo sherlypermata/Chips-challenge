@@ -6,12 +6,19 @@
 
 /**
  *
- * @author Ifan
+ * Kelas ini merupakan kelas yang menyimpan informasi tentang  pemeran utamanya
+ * yang bernama Chip yang dapat bergerak ke kiri, kanan, atas, maupun bawah.
  */
 public class Chip {
 
     private int position;
     private int x,y;
+    
+    /**
+     * 
+     * @param x merupakan koordinat x
+     * @param y merupakan koordinat y
+     */
     
     public Chip(int x, int y)
     {
