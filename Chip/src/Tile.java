@@ -1,9 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package chip;
 /**
  *
  * Kelas ini merupakan kelas yang menyimpan informasi-informasi tentang elemen-elemen di dalamnya berupa Chip, 
@@ -11,32 +10,68 @@
  */
 public class Tile {
 
-    private String obstacleType;
-    
-    public String getObstacleType() {
-        return obstacleType;
-    }
+    private int obstacleType;
+    // 0:lantai
+    // 1:api
+    // 2.dinding
+    // 3.IC
+    // 4.gerbang
+    // 5.finish
 
-    
-    public void setObstacleType(String obstacleType) {
+    public Tile(int obstacleType) {
         this.obstacleType = obstacleType;
     }
     
     
-    public void canLose()
-    {
-        if(getObstacleType().equalsIgnoreCase("fire"))
-        {
-            System.out.println("You Lose!");
-        }
+    
+    
+    public void setFloor(){
+        obstacleType = 0;
     }
     
-    public void canWin()
+    public int getObstacleType() {
+        return obstacleType;
+    }
+
+    
+    public void setObstacleType(int obstacleType) {
+        this.obstacleType = obstacleType;
+    }
+    
+    public boolean canCollect()
     {
-        if(getObstacleType().equalsIgnoreCase("portal"))
+        if(getObstacleType() == 3)
         {
-            System.out.println("You Win!");
+            return true;
         }
+        return false;
+    }
+    
+    public boolean canThrough()
+    {
+        if(getObstacleType() == 2 || getObstacleType() == 4)
+        {
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean canLose()
+    {
+        if(getObstacleType() == 1)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean canWin()
+    {
+        if(getObstacleType() == 5)
+        {
+            return true;
+        }
+        return false;
     }
     
             

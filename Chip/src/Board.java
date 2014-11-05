@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package chip;
 
 /**
  *
@@ -11,11 +11,11 @@
 public class Board {
     
     private int level;
-    private int chipLeft;
+    private int left;
     private Tile[][] tile;
-    private String rintangan[][];
-    private int pemain;
-    private int[][] sizeBoard;
+    private Chip player;
+    private int maxX;
+    private int maxY;
     
     /**
      * 
@@ -24,9 +24,9 @@ public class Board {
      */
     public Board(int x, int y)
     {
-        this.sizeBoard = sizeBoard;
-        
-        tile[0][3].canLose();
+        tile = new Tile[x][y];
+        maxX = x;
+        maxY = y;
     }
             
     public int getLevel() {
@@ -38,14 +38,125 @@ public class Board {
     }
     
     
-    public int getPemain() {
-        return pemain;
+    public Chip getPlayer() {
+        return player;
     }
 
-    public void setPemain(int pemain) {
-        this.pemain = pemain;
+    public void setPlayer(Chip player) {
+        this.player = player;
     }
     
+    public int getICLeft() {
+        return left;
+    }
+
+    public void setICLeft(int icLeft) {
+        this.left = icLeft;
+    }
+
+    public Tile[][] getTile() {
+        return tile;
+    }
+
+    public void setTile(Tile[][] tile) {
+        this.tile = tile;
+        this.left = countIC();
+    }
     
-     
+    public boolean checkPlayerLose()
+    {
+        Tile t = tile[player.getX()][player.getY()];
+        return t.canLose();
+    }
+    
+    public boolean checkPlayerWin()
+    {
+        Tile t = tile[player.getX()][player.getY()];
+        return t.canWin();
+    }
+    
+    public boolean checkPlayerMoveUp()
+    {
+        if(player.getY()-1 < 0)
+        {
+            return false;
+        }
+        else 
+        {
+            Tile t = tile[player.getX()][player.getY() -1];
+            if(t.canThrough())
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    
+    public boolean checkPlayerMoveDown()
+    {
+        if(player.getY()+1 >= maxY)
+        {
+            return false;
+        }
+        else 
+        {
+            Tile t = tile[player.getX()][player.getY() +1];
+            if(t.canThrough())
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    
+    public boolean checkPlayerMoveLeft()
+    {
+        if(player.getX()-1 < 0)
+        {
+            return false;
+        }
+        else 
+        {
+            Tile t = tile[player.getX()-1][player.getY()];
+            if(t.canThrough())
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    
+    public boolean checkPlayerMoveRight()
+    {
+        if(player.getX()+1 >= maxX)
+        {
+            return false;
+        }
+        else 
+        {
+            Tile t = tile[player.getX()+1][player.getY()];
+            if(t.canThrough())
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    
+    public int countIC()
+    {
+        int left=0;
+        for (int i = 0; i < maxX; i++) {
+            for (int j = 0; j < maxY; j++) {
+                Tile t = tile[i][j];
+                if(t.canCollect())
+                {
+                    left = left + 1;
+                }
+                left = left + 0;
+            }
+            
+        }
+        return left;
+    }
 }
