@@ -12,7 +12,7 @@
 public class Tester {
     public static void main(String[] args)
     {
-        Board b = new Board(9, 9);
+        Board b = new Board();
         
         int[][] map = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -30,7 +30,7 @@ public class Tester {
             for (int j = 0; j < 9; j++)
                 tile[j][i] = new Tile(map[i][j]);
         
-        b.setTile(tile);
+        b.setTile(tile,9,9);
         
         Chip c = new Chip(4, 4);
         b.setPlayer(c);

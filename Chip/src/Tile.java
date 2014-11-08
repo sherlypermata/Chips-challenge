@@ -17,6 +17,14 @@ public class Tile {
     // 3.IC
     // 4.gerbang
     // 5.finish
+    
+    public static final int LANTAI = 0;
+    public static final int API = 1;
+    public static final int DINDING = 2;
+    public static final int IC = 3;
+    public static final int GERBANG = 4;
+    public static final int FINISH = 5;
+    
 
     public Tile(int obstacleType) {
         this.obstacleType = obstacleType;
@@ -26,7 +34,7 @@ public class Tile {
     
     
     public void setFloor(){
-        obstacleType = 0;
+        obstacleType = LANTAI;
     }
     
     public int getObstacleType() {

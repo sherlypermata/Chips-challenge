@@ -22,11 +22,8 @@ public class Board {
      * @param x merupakan koordinat x
      * @param y merupakan koordinat y
      */
-    public Board(int x, int y)
+    public Board()
     {
-        tile = new Tile[x][y];
-        maxX = x;
-        maxY = y;
     }
             
     public int getLevel() {
@@ -58,9 +55,11 @@ public class Board {
         return tile;
     }
 
-    public void setTile(Tile[][] tile) {
+    public void setTile(Tile[][] tile, int x, int y) {
         this.tile = tile;
         this.left = countIC();
+        maxX = x;
+        maxY = y;
     }
     
     public boolean checkPlayerLose()
