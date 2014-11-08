@@ -1,4 +1,3 @@
-
 import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 
@@ -14,6 +13,7 @@ public class ChipChallengeUI extends javax.swing.JFrame {
 
     private JLabel[][] jLabel;
     Board b;
+    private int level = 1;
 
     /**
      * Creates new form ChipChallengeUI
@@ -31,15 +31,15 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     public void initiateLevel(int level) {
         if (level == 1) {
             int[][] map = {
-                {1, 1, 1, 2, 3, 4, 0, 0, 1},
-                {0, 0, 0, 2, 0, 0, 0, 0, 0},
-                {0, 0, 0, 2, 0, 0, 0, 0, 0},
-                {2, 2, 2, 2, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 1, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 1, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {5, 0, 0, 0, 0, 0, 0, 0, 0},};
+                {0, 0, 0, 0, 5, 0, 0, 0, 0},
+                {0, 2, 2, 2, 4, 2, 2, 2, 0},
+                {0, 2, 0, 3, 0, 0, 0, 2, 0},
+                {0, 2, 0, 0, 0, 0, 0, 2, 0},
+                {0, 2, 0, 0, 0, 0, 3, 2, 0},
+                {0, 2, 0, 0, 0, 0, 0, 2, 0},
+                {0, 2, 3, 0, 1, 0, 0, 2, 0},
+                {0, 2, 0, 0, 0, 0, 0, 2, 0},
+                {0, 2, 2, 2, 2, 2, 2, 2, 0},};
 
             Chip c = new Chip(4, 4);
             b.setPlayer(c);
@@ -102,8 +102,12 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Batman.jpg"));
         if (b.getTile()[x][y].getObstacleType() == Tile.API) {
             jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Lose.jpg"));
+            System.out.println("YOU LOSE!");
+            initiateLevel(level);
+            //b.countIC();
+
         }
-        
+
     }
 
     public void setJLabel() {
@@ -294,168 +298,6 @@ public class ChipChallengeUI extends javax.swing.JFrame {
                 formKeyTyped(evt);
             }
         });
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel9.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel11.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel12.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel13.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel14.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel15.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel16.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel17.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel18.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel19.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel20.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel21.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel22.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel23.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel24.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel25.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel26.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel27.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel28.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel29.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel30.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel31.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel32.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel33.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel34.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel35.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel36.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel37.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel38.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel39.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel40.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel41.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel42.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel43.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel44.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel45.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel46.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel47.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel48.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel49.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel50.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel51.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel52.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel53.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel54.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel55.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel56.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel57.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel58.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel59.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel60.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel61.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel62.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel63.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel64.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel65.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel66.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel67.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel68.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel69.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel70.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel71.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel72.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel73.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel74.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel75.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel76.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel77.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel78.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel79.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel80.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
-
-        jLabel81.setIcon(new javax.swing.ImageIcon("D:\\TA ADBO CHIP\\Chips-challenge\\Chip\\Image\\Floor.png")); // NOI18N
 
         jLabel82.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel82.setText("LEVEL");
@@ -760,48 +602,60 @@ public class ChipChallengeUI extends javax.swing.JFrame {
 
     private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_formKeyTyped
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         // TODO add your handling code here:
-        
+
         //PROCESS INPUT
         if (evt.getKeyCode() == KeyEvent.VK_UP) {
             if (b.checkPlayerMoveUp()) {
                 b.getPlayer().moveUp();
             }
-        }
-        else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
+        } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
             if (b.checkPlayerMoveDown()) {
                 b.getPlayer().moveDown();
             }
-        }
-        else if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
+        } else if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
             if (b.checkPlayerMoveLeft()) {
                 b.getPlayer().moveLeft();
             }
-        }
-        else if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
+        } else if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
             if (b.checkPlayerMoveRight()) {
                 b.getPlayer().moveRight();
             }
         }
-        
+
         // CALCULATION
         int x = b.getPlayer().getX();
         int y = b.getPlayer().getY();
         if (b.checkPlayerWin()) {
             System.out.println("YOU WIN!!!");
+            initiateLevel(level + 1);
         }
         Tile tile = b.getTile()[x][y];
+
         if (tile.getObstacleType() == Tile.IC) {
             b.setICLeft(b.getICLeft() - 1);
             tile.setFloor();
-            //jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Fljpg"));
         }
-        
+        /*if(b.getICLeft()== 0)
+        {
+            if(b.getTile()[x][y-1].getObstacleType() == Tile.GERBANG)
+            {
+                b.getTile()[x][y-1].setFloor();
+            }
+        }*/
+        if (b.checkPlayerMoveUp() == false) {
+            if (b.getTile()[x][y-1].getObstacleType() == Tile.GERBANG) {
+                if (b.countIC()== 0) {
+                    b.getTile()[x][y-1].setFloor();
+                }
+            }
+        }
+
         //RENDER
         drawBoard();
     }//GEN-LAST:event_formKeyPressed
