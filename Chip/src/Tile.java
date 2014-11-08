@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package chip;
+
 /**
  *
  * Kelas ini merupakan kelas yang menyimpan informasi-informasi tentang elemen-elemen di dalamnya berupa Chip, 

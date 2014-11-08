@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chip;
+
 
 /**
  * 
@@ -18,7 +18,7 @@ public class Tester {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 1, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 2, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -35,8 +35,12 @@ public class Tester {
         Chip c = new Chip(4, 4);
         b.setPlayer(c);
         
-        if (b.checkPlayerMoveRight()) {
-            c.moveRight();
+        if (b.checkPlayerMoveUp()) {
+            c.moveUp();
+            if(b.checkPlayerWin())
+            {
+                System.out.println("YOU WIN!!!");
+            }
         }
         System.out.print(c.getX() + " " + c.getY());
     }
