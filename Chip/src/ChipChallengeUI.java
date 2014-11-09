@@ -28,42 +28,65 @@ public class ChipChallengeUI extends javax.swing.JFrame {
 
     }
 
+    //level batman's challenge
     public void initiateLevel(int level) {
+        //LEVEL 1
         if (level == 1) {
             int[][] map = {
-                {0, 0, 0, 0, 5, 0, 0, 0, 0},
-                {0, 2, 2, 2, 4, 2, 2, 2, 0},
-                {0, 2, 0, 3, 0, 0, 0, 2, 0},
+                {0, 0, 0, 2, 5, 2, 0, 0, 0},
+                {2, 2, 2, 2, 4, 2, 2, 2, 2},
                 {0, 2, 0, 0, 0, 0, 0, 2, 0},
-                {0, 2, 0, 0, 0, 0, 3, 2, 0},
-                {0, 2, 0, 0, 0, 0, 0, 2, 0},
-                {0, 2, 3, 0, 1, 0, 0, 2, 0},
-                {0, 2, 0, 0, 0, 0, 0, 2, 0},
-                {0, 2, 2, 2, 2, 2, 2, 2, 0},};
+                {0, 2, 1, 0, 0, 0, 1, 2, 0},
+                {2, 2, 3, 0, 0, 0, 3, 2, 0},
+                {0, 2, 1, 0, 0, 0, 1, 2, 0},
+                {0, 2, 0, 0, 3, 0, 0, 2, 0},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {0, 2, 0, 0, 2, 0, 0, 2, 0}};
 
             Chip c = new Chip(4, 4);
             b.setPlayer(c);
             Tile[][] tile = convertMapToTile(map);
             b.setTile(tile, 9, 9);
+
+        //LEVEL 2
         } else if (level == 2) {
             int[][] map = {
-                {1, 1, 1, 2, 3, 4, 0, 0, 1},
-                {1, 0, 0, 2, 0, 0, 0, 0, 0},
-                {1, 0, 0, 2, 0, 0, 0, 0, 0},
-                {2, 2, 2, 2, 0, 0, 0, 0, 0},
-                {1, 0, 0, 0, 1, 0, 0, 0, 0},
-                {1, 0, 0, 0, 0, 0, 0, 0, 0},
-                {1, 0, 0, 0, 1, 0, 0, 0, 0},
-                {1, 0, 0, 0, 0, 0, 0, 0, 0},
-                {1, 0, 0, 0, 0, 0, 0, 0, 0},};
+                {0, 2, 2, 2, 2, 2, 2, 2, 0},
+                {0, 2, 3, 0, 1, 0, 1, 2, 2},
+                {0, 2, 1, 0, 0, 1, 3, 2, 0},
+                {0, 2, 1, 1, 0, 0, 0, 2, 0},
+                {0, 2, 1, 1, 0, 0, 1, 2, 0},
+                {2, 2, 0, 1, 0, 3, 1, 2, 2},
+                {0, 2, 0, 0, 4, 0, 0, 2, 0},
+                {2, 2, 2, 2, 5, 2, 2, 2, 2},
+                {0, 0, 0, 2, 2, 2, 0, 0, 0}};
 
-            Chip c = new Chip(8, 8);
+            Chip c = new Chip(4, 4);
             b.setPlayer(c);
             Tile[][] tile = convertMapToTile(map);
             b.setTile(tile, 9, 9);
-        }
-    }
+            
+        //LEVEL 3
+        } else if (level == 3) {
+            int[][] map = {
+                {0, 2, 1, 1, 1, 1, 1, 2, 0},
+                {2, 2, 3, 1, 0, 3, 1, 2, 2},
+                {0, 2, 0, 2, 0, 2, 2, 2, 2},
+                {0, 1, 0, 0, 0, 0, 4, 5, 2},
+                {0, 2, 0, 0, 0, 2, 2, 2, 2},
+                {0, 2, 0, 0, 0, 0, 3, 0, 1},
+                {0, 1, 2, 2, 2, 2, 2, 0, 1},
+                {0, 3, 0, 0, 0, 0, 0, 0, 1},
+                {2, 1, 2, 2, 2, 2, 2, 2, 1},};
 
+            Chip c = new Chip(4, 4);
+            b.setPlayer(c);
+            Tile[][] tile = convertMapToTile(map);
+            b.setTile(tile, 9, 9);
+
+        }
+    
+    }
     public Tile[][] convertMapToTile(int[][] map) {
         Tile[][] tile = new Tile[9][9];
         for (int i = 0; i < 9; i++) {
@@ -634,6 +657,7 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         if (b.checkPlayerWin()) {
             System.out.println("YOU WIN!!!");
             initiateLevel(level + 1);
+            level = level+1;
         }
         Tile tile = b.getTile()[x][y];
 
@@ -641,20 +665,58 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             b.setICLeft(b.getICLeft() - 1);
             tile.setFloor();
         }
-        /*if(b.getICLeft()== 0)
-        {
-            if(b.getTile()[x][y-1].getObstacleType() == Tile.GERBANG)
-            {
-                b.getTile()[x][y-1].setFloor();
+        /*if ((b.checkPlayerMoveUp() == false) || (b.checkPlayerMoveDown()== false) || (b.checkPlayerMoveLeft()== false) || (b.checkPlayerMoveRight()== false)) {
+            if ((b.getTile()[x][y - 1].getObstacleType() == Tile.GERBANG)|| (b.getTile()[x][y + 1].getObstacleType() == Tile.GERBANG) || (b.getTile()[x-1][y].getObstacleType() == Tile.GERBANG)||(b.getTile()[x+1][y].getObstacleType() == Tile.GERBANG)) {
+                if (b.countIC() == 0) {
+                    b.getTile()[x][y - 1].setFloor();
+                    b.getTile()[x][y + 1].setFloor();
+                    b.getTile()[x-1][y].setFloor();
+                    b.getTile()[x+1][y].setFloor();
+                }
             }
         }*/
-        if (b.checkPlayerMoveUp() == false) {
-            if (b.getTile()[x][y-1].getObstacleType() == Tile.GERBANG) {
-                if (b.countIC()== 0) {
-                    b.getTile()[x][y-1].setFloor();
+        if(b.checkPlayerMoveUp() == false)
+        {
+            if(b.getTile()[x][y - 1].getObstacleType() == Tile.GERBANG)
+            {
+                if(b.countIC() == 0)
+                {
+                    b.getTile()[x][y - 1].setFloor();
+                }
+            }
+                
+        }
+        if(b.checkPlayerMoveDown() == false)
+        {
+            if(b.getTile()[x][y+1].getObstacleType() == Tile.GERBANG)
+            {
+                if(b.countIC() == 0)
+                {
+                    b.getTile()[x][y + 1].setFloor();
                 }
             }
         }
+        if(b.checkPlayerMoveRight() == false)
+        {
+            if(b.getTile()[x+1][y].getObstacleType() == Tile.GERBANG)
+            {
+                if(b.countIC() == 0)
+                {
+                    b.getTile()[x+1][y].setFloor();
+                }
+            }
+        }
+        if(b.checkPlayerMoveLeft()== false)
+        {
+            if(b.getTile()[x-1][y].getObstacleType() == Tile.GERBANG)
+            {
+                if(b.countIC() == 0)
+                {
+                    b.getTile()[x-1][y].setFloor();
+                }
+            }
+        }
+        
 
         //RENDER
         drawBoard();
