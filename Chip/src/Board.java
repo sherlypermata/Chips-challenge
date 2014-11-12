@@ -12,6 +12,8 @@ public class Board {
     
     private int level;
     private int left;
+    private int redShoesCount;
+    private int blueShoesCount;
     private Tile[][] tile;
     private Chip player;
     private int maxX;
@@ -50,6 +52,22 @@ public class Board {
     public void setICLeft(int icLeft) {
         this.left = icLeft;
     }
+    
+    public int getRedShoes() {
+        return redShoesCount;
+    }
+
+    public void setRedShoes(int redShoesLeft) {
+        this.redShoesCount = redShoesLeft;
+    }
+    
+    public int getBlueShoes() {
+        return blueShoesCount;
+    }
+
+    public void setBlueShoes(int blueShoesLeft) {
+        this.blueShoesCount = blueShoesLeft;
+    }
 
     public Tile[][] getTile() {
         return tile;
@@ -58,6 +76,8 @@ public class Board {
     public void setTile(Tile[][] tile, int x, int y) {
         this.tile = tile;
         this.left = countIC();
+        this.redShoesCount =countRedShoes();
+        this.blueShoesCount =countBlueShoes();
         maxX = x;
         maxY = y;
     }
@@ -157,5 +177,19 @@ public class Board {
             
         }
         return left;
+    }
+    
+    public int countRedShoes()
+    {
+        int redShoesCount = 0;
+        
+        return redShoesCount;
+    }
+    
+    public int countBlueShoes()
+    {
+        int blueShoesCount = 0;
+        
+        return blueShoesCount;
     }
 }

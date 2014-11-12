@@ -24,6 +24,9 @@ public class Tile {
     public static final int IC = 3;
     public static final int GERBANG = 4;
     public static final int FINISH = 5;
+    public static final int WATER = 6;
+    public static final int REDSHOES =7;
+    public static final int BLUSHOES = 8;
     
 
     public Tile(int obstacleType) {
@@ -66,7 +69,7 @@ public class Tile {
     
     public boolean canLose()
     {
-        if(getObstacleType() == 1)
+        if(getObstacleType() == 1 || getObstacleType() == 6)
         {
             return true;
         }
@@ -82,5 +85,12 @@ public class Tile {
         return false;
     }
     
-            
+    public boolean canUse()
+    {
+        if(getObstacleType() == 7 || getObstacleType() == 8)
+        {
+            return true;
+        }
+        return false;
+    }
 }

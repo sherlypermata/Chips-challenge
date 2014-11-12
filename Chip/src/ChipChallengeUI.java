@@ -35,8 +35,8 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             int[][] map = {
                 {0, 0, 0, 2, 5, 2, 0, 0, 0},
                 {2, 2, 2, 2, 4, 2, 2, 2, 2},
-                {0, 2, 0, 0, 0, 0, 0, 2, 0},
-                {0, 2, 1, 0, 0, 0, 1, 2, 0},
+                {0, 2, 0, 7, 0, 0, 0, 2, 0},
+                {0, 2, 1, 6, 0, 0, 1, 2, 0},
                 {2, 2, 3, 0, 0, 0, 3, 2, 0},
                 {0, 2, 1, 0, 0, 0, 1, 2, 0},
                 {0, 2, 0, 0, 3, 0, 0, 2, 0},
@@ -56,8 +56,8 @@ public class ChipChallengeUI extends javax.swing.JFrame {
                 {0, 2, 1, 0, 0, 1, 3, 2, 0},
                 {0, 2, 1, 1, 0, 0, 0, 2, 0},
                 {0, 2, 1, 1, 0, 0, 1, 2, 0},
-                {2, 2, 0, 1, 0, 3, 1, 2, 2},
-                {0, 2, 0, 0, 4, 0, 0, 2, 0},
+                {2, 2, 0, 8, 0, 3, 1, 2, 2},
+                {0, 2, 0, 6, 4, 0, 0, 2, 0},
                 {2, 2, 2, 2, 5, 2, 2, 2, 2},
                 {0, 0, 0, 2, 2, 2, 0, 0, 0}};
 
@@ -112,6 +112,12 @@ public class ChipChallengeUI extends javax.swing.JFrame {
                     jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Barrier.jpg"));
                 } else if (b.getTile()[j][i].getObstacleType() == Tile.FINISH) {
                     jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Portal.jpg"));
+                }else if (b.getTile()[j][i].getObstacleType() == Tile.WATER) {
+                    jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Water.jpg"));
+                }else if (b.getTile()[j][i].getObstacleType() == Tile.REDSHOES) {
+                    jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\RedShoes.jpg"));
+                }else if (b.getTile()[j][i].getObstacleType() == Tile.BLUSHOES) {
+                    jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\BlueShoes.jpg"));
                 }
             }
         }
@@ -125,10 +131,20 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Batman.jpg"));
         if (b.getTile()[x][y].getObstacleType() == Tile.API) {
             jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Lose.jpg"));
-            System.out.println("YOU LOSE!");
-            initiateLevel(level);
-            //b.countIC();
-
+            if(b.getRedShoes() ==  0)
+            {
+                System.out.println("YOU LOSE!");
+                initiateLevel(level);
+            }
+        }
+        
+        if (b.getTile()[x][y].getObstacleType() == Tile.WATER) {
+            jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\LoseWater.jpg"));
+            if(b.getBlueShoes() == 0)
+            {
+                System.out.println("YOU LOSE!");
+                initiateLevel(level);
+            }
         }
 
     }
@@ -311,6 +327,7 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         jLabel81 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel82 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
@@ -322,8 +339,12 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel82.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel82.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel82.setText("LEVEL");
+
+        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel83.setText("1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -485,7 +506,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104)
                 .addComponent(jLabel82)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel83)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -616,8 +639,10 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel83))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         pack();
@@ -656,6 +681,7 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         int y = b.getPlayer().getY();
         if (b.checkPlayerWin()) {
             System.out.println("YOU WIN!!!");
+            //b.setRedShoes(level);
             initiateLevel(level + 1);
             level = level+1;
         }
@@ -665,16 +691,19 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             b.setICLeft(b.getICLeft() - 1);
             tile.setFloor();
         }
-        /*if ((b.checkPlayerMoveUp() == false) || (b.checkPlayerMoveDown()== false) || (b.checkPlayerMoveLeft()== false) || (b.checkPlayerMoveRight()== false)) {
-            if ((b.getTile()[x][y - 1].getObstacleType() == Tile.GERBANG)|| (b.getTile()[x][y + 1].getObstacleType() == Tile.GERBANG) || (b.getTile()[x-1][y].getObstacleType() == Tile.GERBANG)||(b.getTile()[x+1][y].getObstacleType() == Tile.GERBANG)) {
-                if (b.countIC() == 0) {
-                    b.getTile()[x][y - 1].setFloor();
-                    b.getTile()[x][y + 1].setFloor();
-                    b.getTile()[x-1][y].setFloor();
-                    b.getTile()[x+1][y].setFloor();
-                }
-            }
-        }*/
+        
+        if(tile.getObstacleType() == Tile.REDSHOES)
+        {
+            b.setRedShoes(b.getRedShoes()+1);
+            tile.setFloor();
+        }
+        
+        if(tile.getObstacleType() == Tile.BLUSHOES)
+        {
+            b.setBlueShoes(b.getBlueShoes()+1);
+            tile.setFloor();
+        }
+        
         if(b.checkPlayerMoveUp() == false)
         {
             if(b.getTile()[x][y - 1].getObstacleType() == Tile.GERBANG)
@@ -716,6 +745,8 @@ public class ChipChallengeUI extends javax.swing.JFrame {
                 }
             }
         }
+        
+       
         
 
         //RENDER
@@ -838,6 +869,7 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
