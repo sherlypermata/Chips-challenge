@@ -1,5 +1,11 @@
+
 import java.awt.event.KeyEvent;
+import javax.swing.GroupLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.io.*;
+import sun.audio.*;
+// http://alvinalexander.com/java/java-audio-example-java-au-play-sound 
 
 /*
  * To change this template, choose Tools | Templates
@@ -14,18 +20,35 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     private JLabel[][] jLabel;
     Board b;
     private int level = 1;
+    private int theme;
+    private SpritePlayer spritePlayer;
 
     /**
      * Creates new form ChipChallengeUI
      */
     public ChipChallengeUI() {
         initComponents();
+
         setJLabel();
+
+        theme = 0;
+        spritePlayer = new SpritePlayer();
 
         b = new Board();
         initiateLevel(1);
         drawBoard();
 
+    }
+
+    public void playSound(String filename) {
+        try {
+            InputStream in = new FileInputStream(System.getProperty("user.dir") + "\\Sound\\" + filename);
+            // create an audiostream from the inputstream
+            AudioStream audioStream = new AudioStream(in);
+            // play the audio clip with the audioplayer class
+            AudioPlayer.player.start(audioStream);
+        } catch (Exception e) {
+        }
     }
 
     //level batman's challenge
@@ -47,8 +70,10 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             b.setPlayer(c);
             Tile[][] tile = convertMapToTile(map);
             b.setTile(tile, 9, 9);
+            String levelString = Integer.toString(level);
+            jLabelLevel.setText(levelString);
 
-        //LEVEL 2
+            //LEVEL 2
         } else if (level == 2) {
             int[][] map = {
                 {0, 2, 2, 2, 2, 2, 2, 2, 0},
@@ -65,28 +90,71 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             b.setPlayer(c);
             Tile[][] tile = convertMapToTile(map);
             b.setTile(tile, 9, 9);
-            
-        //LEVEL 3
+            String levelString = Integer.toString(level);
+            jLabelLevel.setText(levelString);
+
+            //LEVEL 3
         } else if (level == 3) {
             int[][] map = {
-                {0, 2, 1, 1, 1, 1, 1, 2, 0},
-                {2, 2, 3, 1, 0, 3, 1, 2, 2},
-                {0, 2, 0, 2, 0, 2, 2, 2, 2},
-                {0, 1, 0, 0, 0, 0, 4, 5, 2},
-                {0, 2, 0, 0, 0, 2, 2, 2, 2},
-                {0, 2, 0, 0, 0, 0, 3, 0, 1},
-                {0, 1, 2, 2, 2, 2, 2, 0, 1},
-                {0, 3, 0, 0, 0, 0, 0, 0, 1},
-                {2, 1, 2, 2, 2, 2, 2, 2, 1},};
+                {2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 5, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2},};
 
             Chip c = new Chip(4, 4);
             b.setPlayer(c);
             Tile[][] tile = convertMapToTile(map);
             b.setTile(tile, 9, 9);
+            String levelString = Integer.toString(level);
+            jLabelLevel.setText(levelString);
+
+        } else if (level == 4) {
+            int[][] map = {
+                {2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 0, 0, 0, 5, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2},};
+
+            Chip c = new Chip(4, 4);
+            b.setPlayer(c);
+            Tile[][] tile = convertMapToTile(map);
+            b.setTile(tile, 9, 9);
+            String levelString = Integer.toString(level);
+            jLabelLevel.setText(levelString);
+
+        } else if (level == 5) {
+            int[][] map = {
+                {2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 9, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 0, 0, 0, 0, 0, 0, 0, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2},};
+
+            Chip c = new Chip(4, 4);
+            b.setPlayer(c);
+            Tile[][] tile = convertMapToTile(map);
+            b.setTile(tile, 9, 9);
+            String levelString = Integer.toString(level);
+            jLabelLevel.setText(levelString);
 
         }
-    
+        labelICLeft.setText(b.countIC() + "");
     }
+
     public Tile[][] convertMapToTile(int[][] map) {
         Tile[][] tile = new Tile[9][9];
         for (int i = 0; i < 9; i++) {
@@ -103,7 +171,7 @@ public class ChipChallengeUI extends javax.swing.JFrame {
                 if (b.getTile()[j][i].getObstacleType() == Tile.LANTAI) {
                     jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Floor.png"));
                 } else if (b.getTile()[j][i].getObstacleType() == Tile.API) {
-                    jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Fire.jpg"));
+                    jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Fire.gif"));
                 } else if (b.getTile()[j][i].getObstacleType() == Tile.DINDING) {
                     jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Wall.jpg"));
                 } else if (b.getTile()[j][i].getObstacleType() == Tile.IC) {
@@ -112,12 +180,14 @@ public class ChipChallengeUI extends javax.swing.JFrame {
                     jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Barrier.jpg"));
                 } else if (b.getTile()[j][i].getObstacleType() == Tile.FINISH) {
                     jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Portal.jpg"));
-                }else if (b.getTile()[j][i].getObstacleType() == Tile.WATER) {
+                } else if (b.getTile()[j][i].getObstacleType() == Tile.WATER) {
                     jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Water.jpg"));
-                }else if (b.getTile()[j][i].getObstacleType() == Tile.REDSHOES) {
+                } else if (b.getTile()[j][i].getObstacleType() == Tile.REDSHOES) {
                     jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\RedShoes.jpg"));
-                }else if (b.getTile()[j][i].getObstacleType() == Tile.BLUSHOES) {
+                } else if (b.getTile()[j][i].getObstacleType() == Tile.BLUSHOES) {
                     jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\BlueShoes.jpg"));
+                } else if (b.getTile()[j][i].getObstacleType() == Tile.JOKER) {
+                    jLabel[i][j].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Joker.jpg"));
                 }
             }
         }
@@ -128,20 +198,24 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     public void setPlayerImage() {
         int x = b.getPlayer().getX();
         int y = b.getPlayer().getY();
-        jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Batman.jpg"));
+        jLabel[y][x].setIcon(new javax.swing.ImageIcon(spritePlayer.getFileName(theme)));
+        if (b.getTile()[x][y].getObstacleType() == Tile.FINISH) {
+            jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\PortalWIn.jpg"));
+
+        }
         if (b.getTile()[x][y].getObstacleType() == Tile.API) {
             jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\Lose.jpg"));
-            if(b.getRedShoes() ==  0)
-            {
-                System.out.println("YOU LOSE!");
+            if (b.getRedShoes() == 0) {
+                JOptionPane.showMessageDialog(this, "Anda kalah.");
+//                System.out.println("YOU LOSE!");
                 initiateLevel(level);
+                drawBoard();
             }
         }
-        
+
         if (b.getTile()[x][y].getObstacleType() == Tile.WATER) {
             jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\LoseWater.jpg"));
-            if(b.getBlueShoes() == 0)
-            {
+            if (b.getBlueShoes() == 0) {
                 System.out.println("YOU LOSE!");
                 initiateLevel(level);
             }
@@ -327,15 +401,17 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         jLabel81 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel82 = new javax.swing.JLabel();
+        jLabelLevel = new javax.swing.JLabel();
+        jComboBoxCharacter = new javax.swing.JComboBox();
         jLabel83 = new javax.swing.JLabel();
+        labelICLeft = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                formKeyTyped(evt);
             }
         });
 
@@ -343,8 +419,20 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel82.setText("LEVEL");
 
-        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel83.setText("1");
+        jLabelLevel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelLevel.setText("1");
+
+        jComboBoxCharacter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Batman", "Joker" }));
+        jComboBoxCharacter.setFocusable(false);
+        jComboBoxCharacter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCharacterActionPerformed(evt);
+            }
+        });
+
+        jLabel83.setText("IC LEFT :");
+
+        labelICLeft.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -505,10 +593,17 @@ public class ChipChallengeUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104)
-                .addComponent(jLabel82)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel83)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelICLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel82)
+                        .addComponent(jComboBoxCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel83)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addComponent(jLabelLevel)
+                .addContainerGap(373, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -641,22 +736,22 @@ public class ChipChallengeUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel83))
-                .addContainerGap(277, Short.MAX_VALUE))
+                    .addComponent(jLabelLevel))
+                .addGap(31, 31, 31)
+                .addComponent(jComboBoxCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel83)
+                    .addComponent(labelICLeft))
+                .addContainerGap(307, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_formKeyTyped
-
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         // TODO add your handling code here:
-
+        playSound("blop.wav");
         //PROCESS INPUT
         if (evt.getKeyCode() == KeyEvent.VK_UP) {
             if (b.checkPlayerMoveUp()) {
@@ -681,77 +776,66 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         int y = b.getPlayer().getY();
         if (b.checkPlayerWin()) {
             System.out.println("YOU WIN!!!");
-            //b.setRedShoes(level);
             initiateLevel(level + 1);
-            level = level+1;
+            level = level + 1;
         }
         Tile tile = b.getTile()[x][y];
 
         if (tile.getObstacleType() == Tile.IC) {
             b.setICLeft(b.getICLeft() - 1);
+            labelICLeft.setText(b.getICLeft() + "");
             tile.setFloor();
         }
-        
-        if(tile.getObstacleType() == Tile.REDSHOES)
-        {
-            b.setRedShoes(b.getRedShoes()+1);
+
+        if (tile.getObstacleType() == Tile.REDSHOES) {
+            b.setRedShoes(b.getRedShoes() + 1);
             tile.setFloor();
         }
-        
-        if(tile.getObstacleType() == Tile.BLUSHOES)
-        {
-            b.setBlueShoes(b.getBlueShoes()+1);
+
+        if (tile.getObstacleType() == Tile.BLUSHOES) {
+            b.setBlueShoes(b.getBlueShoes() + 1);
             tile.setFloor();
         }
-        
-        if(b.checkPlayerMoveUp() == false)
-        {
-            if(b.getTile()[x][y - 1].getObstacleType() == Tile.GERBANG)
-            {
-                if(b.countIC() == 0)
-                {
+
+        if (b.checkPlayerMoveUp() == false) {
+            if (b.getTile()[x][y - 1].getObstacleType() == Tile.GERBANG) {
+                if (b.countIC() == 0) {
                     b.getTile()[x][y - 1].setFloor();
                 }
             }
-                
+
         }
-        if(b.checkPlayerMoveDown() == false)
-        {
-            if(b.getTile()[x][y+1].getObstacleType() == Tile.GERBANG)
-            {
-                if(b.countIC() == 0)
-                {
+        if (b.checkPlayerMoveDown() == false) {
+            if (b.getTile()[x][y + 1].getObstacleType() == Tile.GERBANG) {
+                if (b.countIC() == 0) {
                     b.getTile()[x][y + 1].setFloor();
                 }
             }
         }
-        if(b.checkPlayerMoveRight() == false)
-        {
-            if(b.getTile()[x+1][y].getObstacleType() == Tile.GERBANG)
-            {
-                if(b.countIC() == 0)
-                {
-                    b.getTile()[x+1][y].setFloor();
+        if (b.checkPlayerMoveRight() == false) {
+            if (b.getTile()[x + 1][y].getObstacleType() == Tile.GERBANG) {
+                if (b.countIC() == 0) {
+                    b.getTile()[x + 1][y].setFloor();
                 }
             }
         }
-        if(b.checkPlayerMoveLeft()== false)
-        {
-            if(b.getTile()[x-1][y].getObstacleType() == Tile.GERBANG)
-            {
-                if(b.countIC() == 0)
-                {
-                    b.getTile()[x-1][y].setFloor();
+        if (b.checkPlayerMoveLeft() == false) {
+            if (b.getTile()[x - 1][y].getObstacleType() == Tile.GERBANG) {
+                if (b.countIC() == 0) {
+                    b.getTile()[x - 1][y].setFloor();
                 }
             }
         }
-        
-       
-        
 
         //RENDER
         drawBoard();
     }//GEN-LAST:event_formKeyPressed
+
+    private void jComboBoxCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCharacterActionPerformed
+        // TODO add your handling code here:
+        theme = jComboBoxCharacter.getSelectedIndex();
+        drawBoard();
+    }//GEN-LAST:event_jComboBoxCharacterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -787,7 +871,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             }
         });
     }
+    //<editor-fold defaultstate="collapsed" desc=" Variables declaration - do not modify  ">
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox jComboBoxCharacter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -871,6 +957,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelLevel;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelICLeft;
     // End of variables declaration//GEN-END:variables
+    //</editor-fold>
 }

@@ -74,12 +74,12 @@ public class Board {
     }
 
     public void setTile(Tile[][] tile, int x, int y) {
+        maxX = x;
+        maxY = y;
         this.tile = tile;
         this.left = countIC();
         this.redShoesCount =countRedShoes();
         this.blueShoesCount =countBlueShoes();
-        maxX = x;
-        maxY = y;
     }
     
     public boolean checkPlayerLose()

@@ -27,6 +27,7 @@ public class Tile {
     public static final int WATER = 6;
     public static final int REDSHOES =7;
     public static final int BLUSHOES = 8;
+    public static final int JOKER = 9;
     
 
     public Tile(int obstacleType) {
@@ -78,7 +79,7 @@ public class Tile {
     
     public boolean canWin()
     {
-        if(getObstacleType() == 5)
+        if(getObstacleType() == 5 || getObstacleType() == 9)
         {
             return true;
         }
