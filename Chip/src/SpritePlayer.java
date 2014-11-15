@@ -5,10 +5,15 @@
 
 /**
  *
- * @author Zulfan
+ * Kelas ini merupakan turunan dari kelas sprite yang menyimpan informasi SpritePlayer
  */
 public class SpritePlayer extends Sprite {
 
+    /**
+     * Method ini berfungsi untuk mendapatkan nama file player 
+     * @param theme
+     * @return 
+     */
     @Override
     public String getFileName(int theme) {
         switch (theme) {

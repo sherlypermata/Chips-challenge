@@ -5,7 +5,7 @@
 
 /**
  *
- * @author Zulfan
+ * Kelas ini merupakan turunan dari kelas map yang menyimpan informasi map di setiap level
  */
 public class MapLevel extends Map{
     //int[][] map;
@@ -53,14 +53,19 @@ public class MapLevel extends Map{
                 {2, 2, 2, 2, 2, 2, 2, 2, 2},
                 {2, 3, 1, 0, 3, 0, 6, 3, 2},
                 {2, 1, 6, 6, 2, 1, 1, 6, 2},
-                {0, 6, 6, 1, 0, 0, 1, 1, 0},
-                {2, 9, 5, 4, 0, 0, 0, 0, 2},
-                {0, 6, 6, 1, 0, 0, 1, 1, 2},
+                {2, 2, 2, 1, 0, 0, 1, 1, 2},
+                {2, 9, 4, 0, 0, 0, 0, 0, 2},
+                {0, 2, 2, 1, 0, 0, 1, 1, 2},
                 {2, 3, 1, 0, 0, 0, 6, 3, 2},
                 {2, 8, 3, 0, 0, 0, 3, 7, 2},
                 {2, 2, 2, 2, 2, 2, 2, 2, 2},};
     
             
+    /**
+     * Method ini berfungsi untuk mendapatkan nilai dari level
+     * @param level
+     * @return 
+     */
     @Override
     public int[][] getLevel(int level) {
         if(level == 1)

@@ -5,11 +5,12 @@
 
 /**
  *
- * Kelas ini merupakan kelas yang menyimpan informasi-informasi tentang elemen-elemen di dalamnya berupa Chip, 
+ * Kelas ini merupakan kelas yang menyimpan informasi-informasi tentang elemen-elemen Tile berupa Chip, 
  * lantai kosong, IC, barrier, finish, dan fire.
  */
 public class Tile {
 
+    
     private int obstacleType;
     // 0:lantai
     // 1:api
@@ -35,26 +36,41 @@ public class Tile {
     public static final int JOKER = 9;
     
 
+    /**
+     * Merupakan konstruktor dari Tile
+     * @param obstacleType 
+     */
     public Tile(int obstacleType) {
         this.obstacleType = obstacleType;
     }
     
-    
-    
-    
+    /**
+     * Method ini berfungsi untuk mengatur tipe rintangan (0:lantai)
+     */
     public void setFloor(){
         obstacleType = LANTAI;
     }
     
+    /**
+     * Method ini berfungsi untuk mendapatkan nilai dari tipe rintangan
+     * @return 
+     */
     public int getObstacleType() {
         return obstacleType;
     }
 
-    
+    /**
+     * Method ini berfungsi untuk mengatur tipe rintangan
+     * @param obstacleType 
+     */
     public void setObstacleType(int obstacleType) {
         this.obstacleType = obstacleType;
     }
     
+    /**
+     * Method ini berfungsi untuk memeriksa tipe rintangan dapat diambil atau tidak
+     * @return 
+     */
     public boolean canCollect()
     {
         if(getObstacleType() == 3)
@@ -64,6 +80,10 @@ public class Tile {
         return false;
     }
     
+    /**
+     * Method ini berfungsi untuk memeriksa tipe rintangan dapat dilewati atau tidak
+     * @return 
+     */
     public boolean canThrough()
     {
         if(getObstacleType() == 2 || getObstacleType() == 4)
@@ -73,6 +93,10 @@ public class Tile {
         return true;
     }
     
+    /**
+     * Method ini berfungsi untuk memeriksa apakah tipe rintangan tersebut menyebabkan kalah atau tidak
+     * @return 
+     */
     public boolean canLose()
     {
         if(getObstacleType() == 1 || getObstacleType() == 6)
@@ -82,6 +106,10 @@ public class Tile {
         return false;
     }
     
+    /**
+     *  Method ini berfungsi untuk memeriksa apakah tipe rintangan tersebut menyebabkan menang atau tidak
+     * @return 
+     */
     public boolean canWin()
     {
         if(getObstacleType() == 5 || getObstacleType() == 9)
@@ -91,6 +119,10 @@ public class Tile {
         return false;
     }
     
+    /**
+     *  Method ini berfungsi untuk memeriksa apakah tipe rintangan tersebut dapat digunakan atau tidak
+     * @return 
+     */
     public boolean canUse()
     {
         if(getObstacleType() == 7 || getObstacleType() == 8)
