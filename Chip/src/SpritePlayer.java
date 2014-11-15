@@ -15,7 +15,11 @@ public class SpritePlayer extends Sprite {
             case 0:
                 return System.getProperty("user.dir") + "\\Image\\Batman.jpg";
             case 1:
-                return System.getProperty("user.dir") + "\\Image\\Joker.jpg";
+                return System.getProperty("user.dir") + "\\Image\\Nightwing.jpg";
+            case 2:
+                return System.getProperty("user.dir") + "\\Image\\RedRobin.jpg";
+            case 3:
+                return System.getProperty("user.dir") + "\\Image\\Batgirl.jpg";      
             default:
                 return "";
         }

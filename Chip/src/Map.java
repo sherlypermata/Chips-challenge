@@ -7,7 +7,6 @@
  *
  * @author Zulfan
  */
-abstract public class Sprite {
-    abstract public String getFileName(int theme);
-    
+public abstract class Map {
+    abstract public int[][] getLevel(int level);
 }
