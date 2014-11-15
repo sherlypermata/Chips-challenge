@@ -5,10 +5,10 @@
 
 /**
  *
- * Kelas ini merupakan kelas yang menyimpan informasi Sprite 
+ * Kelas ini merupakan kelas yang menyimpan informasi Character 
  */
 
- public abstract class Sprite {
+ public abstract class Character {
      
      /**
       * Method ini berfungsi untuk mendapatkan nama file

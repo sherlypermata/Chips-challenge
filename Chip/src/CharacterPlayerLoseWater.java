@@ -5,9 +5,9 @@
 
 /**
  *
- * Kelas ini merupakan turunan dari kelas sprite yang menyimpan informasi SpritePlayerLoseWater
+ * Kelas ini merupakan turunan dari kelas sprite yang menyimpan informasi CharacterPlayerLoseWater
  */
-public class SpritePlayerLoseWater extends Sprite{
+public class CharacterPlayerLoseWater extends Character{
     
     /**
      * Method ini berfungsi untuk mendapatkan nama file player

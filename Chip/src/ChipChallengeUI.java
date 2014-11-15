@@ -21,9 +21,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     Board b;
     private int level = 1;
     private int theme;
-    private SpritePlayer spritePlayer;
-    private SpritePlayerLoseFire spritePlayerLoseFire;
-    private SpritePlayerLoseWater spritePlayerLoseWater;
+    private CharacterPlayer characterPlayer;
+    private CharacterPlayerLoseFire characterPlayerLoseFire;
+    private CharacterPlayerLoseWater characterPlayerLoseWater;
     private Map mapLevel;
 
     /**
@@ -35,9 +35,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         setJLabel();
 
         theme = 0;
-        spritePlayer = new SpritePlayer();
-        spritePlayerLoseFire = new SpritePlayerLoseFire();
-        spritePlayerLoseWater =new SpritePlayerLoseWater();
+        characterPlayer = new CharacterPlayer();
+        characterPlayerLoseFire = new CharacterPlayerLoseFire();
+        characterPlayerLoseWater =new CharacterPlayerLoseWater();
         mapLevel= new MapLevel();
 
         b = new Board();
@@ -152,13 +152,13 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     public void setPlayerImage() {
         int x = b.getPlayer().getX();
         int y = b.getPlayer().getY();
-        jLabel[y][x].setIcon(new javax.swing.ImageIcon(spritePlayer.getFileName(theme)));
+        jLabel[y][x].setIcon(new javax.swing.ImageIcon(characterPlayer.getFileName(theme)));
         if (b.getTile()[x][y].getObstacleType() == Tile.FINISH) {
             jLabel[y][x].setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\Image\\PortalWIn.jpg"));
 
         }
         if (b.getTile()[x][y].getObstacleType() == Tile.API) {
-            jLabel[y][x].setIcon(new javax.swing.ImageIcon(spritePlayerLoseFire.getFileName(theme)));
+            jLabel[y][x].setIcon(new javax.swing.ImageIcon(characterPlayerLoseFire.getFileName(theme)));
             if (b.getRedShoes() == 0) {
                 JOptionPane.showMessageDialog(this, "You Lose.");        
                 initiateLevel(level);
@@ -167,7 +167,7 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         }
 
         if (b.getTile()[x][y].getObstacleType() == Tile.WATER) {
-            jLabel[y][x].setIcon(new javax.swing.ImageIcon(spritePlayerLoseWater.getFileName(theme)));
+            jLabel[y][x].setIcon(new javax.swing.ImageIcon(characterPlayerLoseWater.getFileName(theme)));
             if (b.getBlueShoes() == 0) {
                 JOptionPane.showMessageDialog(this, "You Lose.");        
                 initiateLevel(level);
