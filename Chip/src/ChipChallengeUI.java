@@ -13,7 +13,7 @@ import sun.audio.*;
  */
 /**
  *
- * @author Zulfan
+ * Kelas ini merupakan
  */
 public class ChipChallengeUI extends javax.swing.JFrame {
 
@@ -61,7 +61,6 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     public void initiateLevel(int level) {
         //LEVEL 1
         if (level == 1) {
-            
             Chip c = new Chip(4, 4);
             b.setPlayer(c);
             Tile[][] tile = convertMapToTile(mapLevel.getLevel(level));
@@ -71,8 +70,6 @@ public class ChipChallengeUI extends javax.swing.JFrame {
 
             //LEVEL 2
         } else if (level == 2) {
-            
-
             Chip c = new Chip(4, 4);
             b.setPlayer(c);
             Tile[][] tile = convertMapToTile(mapLevel.getLevel(level));
@@ -82,8 +79,6 @@ public class ChipChallengeUI extends javax.swing.JFrame {
 
             //LEVEL 3
         } else if (level == 3) {
-            
-
             Chip c = new Chip(4, 4);
             b.setPlayer(c);
             Tile[][] tile = convertMapToTile(mapLevel.getLevel(level));
@@ -93,8 +88,6 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             
             //LEVEL 4
         } else if (level == 4) {
-            
-
             Chip c = new Chip(4, 4);
             b.setPlayer(c);
             Tile[][] tile = convertMapToTile(mapLevel.getLevel(level));
@@ -113,7 +106,6 @@ public class ChipChallengeUI extends javax.swing.JFrame {
             jLabelLevel.setText(levelString);
 
         }
-        
         labelICLeft.setText(b.countIC() + "");
     }
 

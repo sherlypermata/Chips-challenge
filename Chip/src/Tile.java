@@ -17,6 +17,11 @@ public class Tile {
     // 3.IC
     // 4.gerbang
     // 5.finish
+    // 6.air
+    // 7.sepatu anti api
+    // 8.sepatu anti air
+    // 9.joker yaitu target akhir dari batman
+    
     
     public static final int LANTAI = 0;
     public static final int API = 1;
