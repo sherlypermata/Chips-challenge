@@ -4,13 +4,13 @@
  */
 
 /**
- *Kelas ini merupakan kelas yang menyimpan informasi map
+ *Kelas ini adalah sebuah kelas abstrak yang digunakan untuk membuat peta untuk setiap level.
  */
 public abstract class Map {
     
     /**
-     * Method ini berfungsi untuk mendapatkan nilai level
-     * @param level
+     * Method ini adalah sebuah method abstrak yang dapat dioverride oleh kelas turunannya.
+     * @param level level permainan.
      * @return 
      */
     abstract public int[][] getLevel(int level);

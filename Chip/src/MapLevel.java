@@ -5,7 +5,7 @@
 
 /**
  *
- * Kelas ini merupakan turunan dari kelas map yang menyimpan informasi map di setiap level
+ * Kelas ini merupakan turunan dari kelas map yang digunakan untuk membuat peta setiap level.
  */
 public class MapLevel extends Map{
     //int[][] map;
@@ -62,8 +62,8 @@ public class MapLevel extends Map{
     
             
     /**
-     * Method ini berfungsi untuk mendapatkan nilai dari level
-     * @param level
+     * Method ini berfungsi untuk mendapatkan level.
+     * @param level level permainan.
      * @return 
      */
     @Override

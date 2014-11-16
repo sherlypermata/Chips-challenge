@@ -5,7 +5,7 @@
 
 /**
  *
- * Kelas ini merupakan kelas yang menyimpan informasi-informasi tentang elemen-elemen Tile berupa Chip, 
+ * Kelas ini merupakan kelas yang menyimpan informasi-informasi tentang elemen-elemen Tile seperti : Chip, 
  * lantai kosong, IC, barrier, finish, dan fire.
  */
 public class Tile {
@@ -38,29 +38,29 @@ public class Tile {
 
     /**
      * Merupakan konstruktor dari Tile
-     * @param obstacleType 
+     * @param obstacleType tipe obstacle.
      */
     public Tile(int obstacleType) {
         this.obstacleType = obstacleType;
     }
     
     /**
-     * Method ini berfungsi untuk mengatur tipe rintangan (0:lantai)
+     * Method ini berfungsi untuk mengatur tipe obstacle Lantai.
      */
     public void setFloor(){
         obstacleType = LANTAI;
     }
     
     /**
-     * Method ini berfungsi untuk mendapatkan nilai dari tipe rintangan
-     * @return 
+     * Method ini berfungsi untuk mendapatkan tipe obstacle.
+     * @return tipe obstacle.
      */
     public int getObstacleType() {
         return obstacleType;
     }
 
     /**
-     * Method ini berfungsi untuk mengatur tipe rintangan
+     * Method ini berfungsi untuk mengatur tipe obstacle.
      * @param obstacleType 
      */
     public void setObstacleType(int obstacleType) {
@@ -68,8 +68,8 @@ public class Tile {
     }
     
     /**
-     * Method ini berfungsi untuk memeriksa tipe rintangan dapat diambil atau tidak
-     * @return 
+     * Method ini berfungsi untuk memeriksa tipe obstacle, apakah dapat diambil atau tidak.
+     * @return true jika dapat diambil, false jika tidak.
      */
     public boolean canCollect()
     {
@@ -81,8 +81,8 @@ public class Tile {
     }
     
     /**
-     * Method ini berfungsi untuk memeriksa tipe rintangan dapat dilewati atau tidak
-     * @return 
+     * Method ini berfungsi untuk memeriksa tipe obstacle, apakah dapat dilewati atau tidak.
+     * @return true jika dapat dilewati, false jika tidak.
      */
     public boolean canThrough()
     {
@@ -94,8 +94,8 @@ public class Tile {
     }
     
     /**
-     * Method ini berfungsi untuk memeriksa apakah tipe rintangan tersebut menyebabkan kalah atau tidak
-     * @return 
+     * Method ini berfungsi untuk memeriksa apakah tipe obstacle tersebut menyebabkan kalah atau tidak.
+     * @return true jika dapat menyebabkan kalah, false jika tidak.
      */
     public boolean canLose()
     {
@@ -107,8 +107,8 @@ public class Tile {
     }
     
     /**
-     *  Method ini berfungsi untuk memeriksa apakah tipe rintangan tersebut menyebabkan menang atau tidak
-     * @return 
+     *  Method ini berfungsi untuk memeriksa apakah tipe obstacle tersebut menyebabkan menang atau tidak.
+     * @return true jika dapat menyebabkan menang, false jika tidak.
      */
     public boolean canWin()
     {
@@ -120,8 +120,8 @@ public class Tile {
     }
     
     /**
-     *  Method ini berfungsi untuk memeriksa apakah tipe rintangan tersebut dapat digunakan atau tidak
-     * @return 
+     *  Method ini berfungsi untuk memeriksa apakah tipe obstacle tersebut dapat digunakan atau tidak.
+     * @return true jika dapat digunakan, false jika tidak.
      */
     public boolean canUse()
     {

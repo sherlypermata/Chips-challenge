@@ -7,7 +7,7 @@
 
 /**
  * 
- * Kelas ini merupakan kelas untuk mencoba memainkan permainan chips challenge dalam bentuk teks.
+ * Kelas ini merupakan kelas yang digunakan untuk mencoba memainkan permainan chips challenge dalam bentuk teks.
  */
 public class Tester {
     public static void main(String[] args)

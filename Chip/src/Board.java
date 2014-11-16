@@ -5,15 +5,7 @@
 /**
  *
  * Kelas ini merupakan kelas yang menyimpan semua informasi yang terdapat
- * diboard. Memiliki atribut/variable: 
- * level berfungsi untuk menyimpan informasi level.
- * left berfungsi untuk menyimpan IC yang terisa. 
- * redShoesCount berfungsi untuk menghitung nilai redShoes. 
- * blueShoesCount berfungsi untuk menghitung nilai blueShoes. 
- * tile yang bertipe Tile[][] berfungsi untuk mengatur tipe tile yang ada pada board. 
- * player yang bertipe Chip berfungsi untuk menyimpan informasi player. 
- * maxX berfungsi untuk batas maximun board dikoordinat X. 
- * maxY berfungsi untuk batas maximum board dikoordinat Y.
+ * di Board.
  */
 public class Board {
 
@@ -27,104 +19,105 @@ public class Board {
     private int maxY;
 
     /**
-     * Merupakan kontruktor dari kelas board
+     * Merupakan konstruktor dari kelas Board.
      */
     public Board() {
     }
 
     /**
-     * Method ini berfungsi untuk mendapatkan nilai level
-     * @return
+     * Method ini berfungsi untuk mendapatkan nilai level.
+     * @return level.
      */
     public int getLevel() {
         return level;
     }
 
     /**
-     * Method ini berfungsi untuk mengatur nilai level
-     * @param level
+     * Method ini berfungsi untuk mengatur level.
+     * @param level nilai level.
      */
     public void setLevel(int level) {
         this.level = level;
     }
 
     /**
-     * Method ini berfungsi untuk mengdapatkan nilai player
+     * Method ini berfungsi untuk mendapatkan player.
+     * @return player.
      */
     public Chip getPlayer() {
         return player;
     }
 
     /**
-     * Method ini berfungsi untuk mengatur nilai player
-     * @param player
+     * Method ini berfungsi untuk mengatur player.
+     * @param player pemain.
      */
     public void setPlayer(Chip player) {
         this.player = player;
     }
 
     /**
-     * Method ini berfungsi untuk mendapatkan nilai ICLeft
-     * @return 
+     * Method ini berfungsi untuk mendapatkan nilai ICLeft.
+     * @return jumlah IC.
      */
     public int getICLeft() {
         return left;
     }
 
     /**
-     * Method ini berfungsi untuk mengatur nilai ICLeft
-     * @param icLeft
+     * Method ini berfungsi untuk mengatur nilai ICLeft.
+     * @param icLeft jumlah IC.
      */
     public void setICLeft(int icLeft) {
         this.left = icLeft;
     }
 
     /**
-     * Method ini berfungsi untuk mendapatkan nilai redShoes
-     * @return 
+     * Method ini berfungsi untuk mendapatkan nilai redShoes.
+     * @return jumlah redShoes.
      */
     public int getRedShoes() {
         return redShoesCount;
     }
 
     /**
-     * Method ini berfungsi untuk mengatur nilai redShoes
-     * @param redShoesLeft
+     * Method ini berfungsi untuk mengatur nilai redShoes.
+     * @param redShoesLeft nilai redShoes.
      */
     public void setRedShoes(int redShoesLeft) {
         this.redShoesCount = redShoesLeft;
     }
 
     /**
-     * Method ini berfungsi untuk mendapatkan nilai blueShoes
-     * @return 
+     * Method ini berfungsi untuk mendapatkan nilai blueShoes.
+     * @return jumlah blueShoes.
      */
     public int getBlueShoes() {
         return blueShoesCount;
     }
 
     /**
-     * Method ini berfungsi untuk mengatur nilai blueShoes
-     * @param blueShoesLeft
+     * Method ini berfungsi untuk mengatur nilai blueShoes.
+     * @param blueShoesLeft nilai blueShoes.
      */
     public void setBlueShoes(int blueShoesLeft) {
         this.blueShoesCount = blueShoesLeft;
     }
 
     /**
-     * Method ini berfungsi untuk mendapatkan nilai tile dari kelas Tile
-     * @return 
+     * Method ini berfungsi untuk mendapatkan nilai tile.
+     * @return tile.
      */
     public Tile[][] getTile() {
         return tile;
     }
 
     /**
-     * Method ini berfungsi untuk mengatur nilai tile berdasarkan kordinat X dan
-     * kordinat Y
-     * @param tile
-     * @param x
-     * @param y
+     * Method ini berfungsi untuk mengatur isi tile berdasarkan baris dan
+     * kolom.
+     * @param tile array dua dimensi yang tipenya Tile.
+     * @param x baris.
+     * @param y kolom.
      */
     public void setTile(Tile[][] tile, int x, int y) {
         maxX = x;
@@ -136,8 +129,8 @@ public class Board {
     }
 
     /**
-     * Method ini berfungsi untuk memeriksa apakah player kalah
-     * @return 
+     * Method ini berfungsi untuk memeriksa apakah player kalah.
+     * @return true bila player kalah, dan false bila tidak.
      */
     public boolean checkPlayerLose() {
         Tile t = tile[player.getX()][player.getY()];
@@ -145,8 +138,8 @@ public class Board {
     }
 
     /**
-     * Method ini berfungsi untuk memeriksa apakah player menang
-     * @return 
+     * Method ini berfungsi untuk memeriksa apakah player menang.
+     * @return true bila player menang, dan false bila tidak.
      */
     public boolean checkPlayerWin() {
         Tile t = tile[player.getX()][player.getY()];
@@ -154,8 +147,8 @@ public class Board {
     }
 
     /**
-     * Method ini berfungsi untuk memeriksa apakah player dapat bergerak keatas
-     * @return 
+     * Method ini berfungsi untuk memeriksa apakah player dapat bergerak keatas.
+     * @return true bila player dapat bergerak keatas, dan false bila tidak.
      */
     public boolean checkPlayerMoveUp() {
         if (player.getY() - 1 < 0) {
@@ -170,8 +163,8 @@ public class Board {
     }
 
     /**
-     * Method ini berfungsi untuk memeriksa apakah player dapat bergerak kebawah
-     * @return 
+     * Method ini berfungsi untuk memeriksa apakah player dapat bergerak kebawah.
+     * @return true bila player dapat bergerak kebawah, dan false bila tidak.
      */
     public boolean checkPlayerMoveDown() {
         if (player.getY() + 1 >= maxY) {
@@ -186,8 +179,8 @@ public class Board {
     }
 
     /**
-     * Method ini berfungsi untuk memeriksa apakah player dapat bergerak kekiri
-     * @return 
+     * Method ini berfungsi untuk memeriksa apakah player dapat bergerak kekiri.
+     * @return true bila player dapat bergerak kekiri, dan false bila tidak.
      */
     public boolean checkPlayerMoveLeft() {
         if (player.getX() - 1 < 0) {
@@ -202,8 +195,8 @@ public class Board {
     }
 
     /**
-     * Method ini berfungsi untuk memeriksa apakah player dapat bergerak kekanan
-     * @return 
+     * Method ini berfungsi untuk memeriksa apakah player dapat bergerak kekanan.
+     * @return true bila player dapat bergerak kekanan, dan false bila tidak.
      */
     public boolean checkPlayerMoveRight() {
         if (player.getX() + 1 >= maxX) {
@@ -218,8 +211,8 @@ public class Board {
     }
 
     /**
-     * Method ini berfungsi untuk menghitung nilai IC
-     * @return 
+     * Method ini berfungsi untuk menghitung banyak IC.
+     * @return jumlah IC.
      */
     public int countIC() {
         int left = 0;
@@ -237,8 +230,8 @@ public class Board {
     }
 
     /**
-     * Method ini berfungsi untuk menghitung nilai redShoes
-     * @return 
+     * Method ini berfungsi untuk menghitung banyak redShoes.
+     * @return jumlah redShoes.
      */
     public int countRedShoes() {
         int redShoesCount = 0;
@@ -246,8 +239,8 @@ public class Board {
     }
 
     /**
-     * Method ini berfungsi untuk menghitung nilai blueShoes
-     * @return 
+     * Method ini berfungsi untuk menghitung banyak blueShoes.
+     * @return jumlah blueShoes.
      */
     public int countBlueShoes() {
         int blueShoesCount = 0;

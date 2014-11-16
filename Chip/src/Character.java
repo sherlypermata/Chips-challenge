@@ -5,15 +5,15 @@
 
 /**
  *
- * Kelas ini merupakan kelas yang menyimpan informasi Character 
+ * Kelas ini merupakan sebuah kelas abstrak yang menyimpan informasi tentang Character.
  */
 
  public abstract class Character {
      
      /**
-      * Method ini berfungsi untuk mendapatkan nama file
-      * @param theme
-      * @return 
+      * Method abstrak ini dibuat untuk dioverride kelas turunannya.
+      * @param theme tema/gambar.
+      * 
       */
     abstract public String getFileName(int theme);
     

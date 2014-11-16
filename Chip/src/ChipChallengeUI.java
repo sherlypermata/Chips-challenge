@@ -13,7 +13,7 @@ import sun.audio.*;
  */
 /**
  *
- * Kelas ini merupakan UI dari Batman's Challenge
+ * Kelas ini merupakan Antarmuka dari Batman's Challenge.
  */
 public class ChipChallengeUI extends javax.swing.JFrame {
 
@@ -27,7 +27,7 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     private Map mapLevel;
 
     /**
-     * Creates new form ChipChallengeUI
+     * Method ini adalah konstruktor dari kelas ChipChallengeUI.
      */
     public ChipChallengeUI() {
         initComponents();
@@ -45,6 +45,10 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         drawBoard();
 
     }
+    
+    /**
+     * Method ini berfungsi untuk memainkan suara.
+     */
 
     public void playSound(String filename) {
         try {
@@ -58,6 +62,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
     }
 
     //level batman's challenge
+    /**
+     * Method ini berfungsi untuk menginisiasi level permainan.
+     */
     public void initiateLevel(int level) {
         //LEVEL 1
         if (level == 1) {
@@ -109,6 +116,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         labelICLeft.setText(b.countIC() + "");
     }
 
+    /**
+     * Method ini berfungsi untuk mengkonversi map menjadi tiles.
+     */
     public Tile[][] convertMapToTile(int[][] map) {
         Tile[][] tile = new Tile[9][9];
         for (int i = 0; i < 9; i++) {
@@ -119,6 +129,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         return tile;
     }
 
+    /**
+     * Method ini berfungsi untuk menggambar setiap objek pada Board. 
+     */
     public void drawBoard() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -149,6 +162,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         setPlayerImage();
     }
 
+    /**
+     * Method ini berfungsi untuk mengatur gambar player.
+     */
     public void setPlayerImage() {
         int x = b.getPlayer().getX();
         int y = b.getPlayer().getY();
@@ -177,6 +193,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Method ini berfungsi untuk mengatur posisi label pada UI.
+     */
     public void setJLabel() {
         jLabel = new JLabel[9][9];
         jLabel[0][0] = jLabel1;
@@ -728,6 +747,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method ini berfungsi untuk mengatur agar player dapat digerakkan menggunakan keyboard.
+     */
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         // TODO add your handling code here:
         playSound("blop.wav");
@@ -811,6 +833,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         drawBoard();
     }//GEN-LAST:event_formKeyPressed
 
+    /**
+     * Method ini berfungsi untuk memberi aksi setelah pengguna memilih karakter pada comboBox.
+     */
     private void jComboBoxCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCharacterActionPerformed
         // TODO add your handling code here:
         theme = jComboBoxCharacter.getSelectedIndex();
@@ -821,7 +846,10 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         //initiateLevel(1);
     }//GEN-LAST:event_jButtonResetActionPerformed
-
+    
+    /**
+     * Method ini berfungsi untuk memberi aksi jika tombol reset di klik.
+     */
     private void jButtonResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonResetMouseClicked
         // TODO add your handling code here:
         initiateLevel(1);

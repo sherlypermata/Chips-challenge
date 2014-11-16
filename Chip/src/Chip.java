@@ -6,9 +6,8 @@
 
 /**
  *
- * Kelas ini merupakan kelas yang menyimpan semua informasi tentang player yang memilki atribut/variable:
- * x berfungsi untuk menyimpan nilai dikordinat x
- * y berfungsi untuk menyimpan nilai dikordinat y
+ * Kelas ini adalah kelas yang menyimpan semua informasi tentang player(Chip).
+ * 
  */
 public class Chip {
 
@@ -16,9 +15,9 @@ public class Chip {
     private int y;
     
     /**
-     * Merupakan konstruktor dari kelas chip
-     * @param x
-     * @param y 
+     * Merupakan konstruktor yang digunakan untuk menempatkan posisi Chip.
+     * @param x baris.
+     * @param y kolom.
      */
     public Chip(int x, int y) {
         this.x = x;
@@ -26,39 +25,39 @@ public class Chip {
     }
 
     /**
-     * Method ini berfungsi untuk mendapatkan nilai X
-     * @return 
+     * Method ini berfungsi untuk mendapatkan nilai x.
+     * @return baris.
      */
     public int getX() {
         return x;
     }
 
     /**
-     * Method ini berfungsi untuk mengatur nilai X
-     * @param x 
+     * Method ini berfungsi untuk mengatur nilai x.
+     * @param x baris.
      */
     public void setX(int x) {
         this.x = x;
     }
 
     /**
-     * Method ini berfungsi untuk mendapatkan nilai Y
-     * @return 
+     * Method ini berfungsi untuk mendapatkan nilai .
+     * @return kolom.
      */
     public int getY() {
         return y;
     }
 
     /**
-     * Method ini berfungsi untuk mengatur nilai Y
-     * @param y 
+     * Method ini berfungsi untuk mengatur nilai y.
+     * @param y kolom.
      */
     public void setY(int y) {
         this.y = y;
     }
 
     /**
-     * Method ini berfungsi untuk mengetahui informasi pemain saat bergerak keatas
+     * Method ini berfungsi untuk memberi instruksi kepada pemain untuk berpindah keatas.
      */
     public void moveUp()
     {
@@ -66,7 +65,7 @@ public class Chip {
     }
     
     /**
-     * Method ini berfungsi untuk mengetahui informasi pemain saat bergerak kebawah
+     * Method ini berfungsi untuk memberi instruksi kepada pemain untuk berpindah kebawah.
      */
     public void moveDown()
     {
@@ -74,7 +73,7 @@ public class Chip {
     }
     
     /**
-     * Method ini berfungsi untuk mengetahui informasi pemain saat bergerak kekiri
+     * Method ini berfungsi untuk memberi instruksi kepada pemain untuk berpindah kekiri.
      */
     public void moveLeft()
     {
@@ -82,7 +81,7 @@ public class Chip {
     }
     
     /**
-     * Method ini berfungsi untuk mengetahui informasi pemain saat bergerak kekanan
+     * Method ini berfungsi untuk memberi instruksi kepada pemain untuk berpindah kekanan.
      */
     public void moveRight()
     {

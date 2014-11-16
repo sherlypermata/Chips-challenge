@@ -5,14 +5,14 @@
 
 /**
  *
- * Kelas ini merupakan turunan dari kelas sprite yang menyimpan informasi CharacterPlayer
+ * Kelas ini adalah kelas turunan dari kelas Character yang digunakan untuk mengambil file gambar karakter saat di lantai kosong.
  */
 public class CharacterPlayer extends Character {
 
     /**
-     * Method ini berfungsi untuk mendapatkan nama file player 
-     * @param theme
-     * @return 
+     * Method ini berfungsi untuk mendapatkan nama file gambar. 
+     * @param theme tema yang dipilih.
+     * @return nama gambar.
      */
     @Override
     public String getFileName(int theme) {

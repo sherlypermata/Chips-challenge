@@ -5,14 +5,14 @@
 
 /**
  *
- * Kelas ini merupakan turunan dari kelas sprite yang menyimpan informasi CharacterPlayerLoseFire
+ * Kelas ini merupakan kelas turunan dari kelas Character yang digunakan untuk mengambil file gambar karakter saat berada di api.
  */
 public class CharacterPlayerLoseFire extends Character{
     
     /**
-     * Method ini berfungsi untuk mendapatkan nama file player
-     * @param theme
-     * @return 
+     * Method ini berfungsi untuk mendapatkan nama file gambar.
+     * @param theme tema yang dipilih.
+     * @return nama gambar.
      */
     @Override
     public String getFileName(int theme) {
