@@ -114,7 +114,7 @@ public class Tile {
      */
     public boolean canWin()
     {
-        if(getObstacleType() == 5 || getObstacleType() == 9)
+        if(getObstacleType() == 5)
         {
             return true;
         }
