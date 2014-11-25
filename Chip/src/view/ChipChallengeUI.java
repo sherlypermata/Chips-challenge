@@ -206,8 +206,9 @@ public class ChipChallengeUI extends javax.swing.JFrame {
         }
         
         if (b.getTile()[x][y].getObstacleType() == Tile.JOKER) {
-            JOptionPane.showMessageDialog(this, "Gordon : You win...You Catch the Joker!"); 
             playSound("punch.wav");
+            JOptionPane.showMessageDialog(this, "Gordon : You win...You Catch the Joker!"); 
+            JOptionPane.showMessageDialog(this, "Thanks for Playing"); 
             
         }
 
